@@ -1,20 +1,11 @@
-import NextAuth, { NextAuthConfig, Profile } from "next-auth";
-import type { OAuth2Config } from "next-auth/providers";
-
-const scopes = ["identify", "guilds"];
+import NextAuth, { NextAuthConfig } from "next-auth";
 
 export const authConfig = {
   debug: true,
   providers: [
-    // {
-    //   id: "purduehackers-id",
-    //   name: "Purdue Hackers ID",
-    //   type: "oauth",
-    //   authorization: "http://localhost:3000/api/authorize",
-    // }
     {
-      id: 'purduehackers-id', // id of the provider
-      name: 'Purdue Hackers ID', // Name of the provider
+      id: 'purduehackers-id',
+      name: 'Purdue Hackers ID',
       type: 'oauth',
       authorization: {
         url: 'https://id.purduehackers.com/api/authorize',
@@ -26,10 +17,6 @@ export const authConfig = {
       checks: [],
       token: {
         url: 'https://id.purduehackers.com/api/token',
-        conform: async(response: any) => {
-          console.log({ response })
-          return response
-        }
       },
       client: {
         token_endpoint_auth_method: 'client_secret_post',
@@ -38,18 +25,8 @@ export const authConfig = {
       userinfo: {
         url: 'https://id.purduehackers.com/api/user'
       },
-      // authorizationUrl: 'https://id.purduehackers.com/api/authorize?response_type=code',
-      profile: (profile) => {
-        // Function to extract user data from the profile response
-        return {
-          id: profile.id,
-          name: profile.name,
-          email: profile.email
-        }
-      },
       clientId: 'auth-test',
-      clientSecret: 'auth-test',
-      // Add any custom configuration here
+      clientSecret: '',
     },
   ],
   secret: process.env.AUTH_SECRET,
