@@ -1,11 +1,11 @@
-import { signIn } from "@/auth";
+import { signOut } from "@/auth";
 
-export function SignInButton({ dark }: { dark?: boolean }) {
+export function SignOutButton({ dark }: { dark?: boolean }) {
   return (
     <form
       action={async () => {
         "use server";
-        await signIn("purduehackers-id");
+        await signOut();
       }}
       className={`mx-auto shadow-blocks-tiny shadow-discord-deselected border-2 border-black ${
         dark ? "" : "bg-discord-light hover:bg-discord-vibrant"
@@ -19,7 +19,7 @@ export function SignInButton({ dark }: { dark?: boolean }) {
         } shadow-none border-none rounded-none h-6`}
         type="submit"
       >
-        Sign in with passport
+        Sign out
       </button>
     </form>
   );

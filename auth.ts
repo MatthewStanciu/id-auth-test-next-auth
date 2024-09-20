@@ -26,13 +26,25 @@ export const authConfig = {
         url: 'https://id.purduehackers.com/api/user'
       },
       clientId: 'auth-test',
-      clientSecret: '',
+      clientSecret: '0',
     },
   ],
   secret: process.env.AUTH_SECRET,
   callbacks: {
+    async jwt({ token, profile }) {
+      if (profile) {
+        token.profile = profile;
+      }
+      return token;
+    },
     async session({ session, token }) {
-      return { ...session, token };
+      if (token.profile) {
+        session.user = {
+          ...session.user,
+          ...token.profile
+        }
+      }
+      return { ...session };
     },
   },
 } satisfies NextAuthConfig
