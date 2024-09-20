@@ -26,7 +26,7 @@ export const authConfig = {
       token: {
         url: 'https://id.purduehackers.com/api/token'
       },
-      issuer: 'https://id.purduehackers.com',
+      issuer: 'https://id.purduehackers.com/api',
       userinfo: {
         url: 'https://id.purduehackers.com/api/user'
       },
@@ -51,13 +51,6 @@ export const authConfig = {
       console.log({session, token})
       //@ts-expect-error
       return { ...session, token };
-    },
-    async jwt({ token, account }) {
-      console.log({token, account})
-      if (account) {
-        token.accessToken = account.access_token;
-      }
-      return token;
     },
   },
 } satisfies NextAuthConfig
