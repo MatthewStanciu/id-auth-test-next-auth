@@ -16,8 +16,6 @@ export const authConfig = {
       id: 'purduehackers-id', // id of the provider
       name: 'Purdue Hackers ID', // Name of the provider
       type: 'oauth',
-      version: '2.0', // OAuth version
-      params: { response_type: 'code', client_id: 'auth-test', grant_type: 'authorization_code' },
       authorization: {
         url: 'http://localhost:3001/api/authorize',
         params: {
