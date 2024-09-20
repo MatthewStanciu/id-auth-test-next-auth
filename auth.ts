@@ -31,6 +31,9 @@ export const authConfig = {
           return response
         }
       },
+      client: {
+        token_endpoint_auth_method: 'client_secret_post',
+      },
       issuer: 'https://id.purduehackers.com/api',
       userinfo: {
         url: 'https://id.purduehackers.com/api/user'
