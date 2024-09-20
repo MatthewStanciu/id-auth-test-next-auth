@@ -1,4 +1,4 @@
-export interface IDProfile {
+export interface Passport {
   id: number;
   owner_id: number;
   version: number;
@@ -10,6 +10,14 @@ export interface IDProfile {
   secret: string;
   activated: boolean;
   ceremony_time: string;
+}
+
+export interface IDProfile {
+  id: number;
+  discord_id: string;
+  role: "Admin" | "Hacker";
+  totp: string;
+  latest_passport: Passport;
 }
 
 export type IDSession = {
