@@ -29,7 +29,6 @@ export const PurdueHackersIDProvider: OAuth2Config<IDProfile> = {
 }
 
 export const authConfig = {
-  debug: true,
   providers: [
     PurdueHackersIDProvider
   ],
