@@ -17,15 +17,15 @@ export const authConfig = {
       name: 'Purdue Hackers ID', // Name of the provider
       type: 'oauth',
       authorization: {
-        url: 'http://localhost:3001/api/authorize',
+        url: 'https://id.purduehackers.com/api/authorize',
         params: {
           scope: 'user:read user'
         }
       },
       checks: [],
-      token: 'http://localhost:3001/api/token', // Token URL
-      userinfo: 'http://localhost:3001/api/token', // Token URL
-      // authorizationUrl: 'http://localhost:3001/api/authorize?response_type=code',
+      token: 'https://id.purduehackers.com/api/token', // Token URL
+      userinfo: 'https://id.purduehackers.com/api/token', // Token URL
+      // authorizationUrl: 'https://id.purduehackers.com/api/authorize?response_type=code',
       profile: (profile) => {
         // Function to extract user data from the profile response
         return {
