@@ -24,7 +24,7 @@ export const authConfig = {
       },
       checks: [],
       token: 'https://id.purduehackers.com/api/token', // Token URL
-      userinfo: 'https://id.purduehackers.com/api/token', // Token URL
+      // userinfo: 'https://id.purduehackers.com/api/token', // Token URL
       // authorizationUrl: 'https://id.purduehackers.com/api/authorize?response_type=code',
       profile: (profile) => {
         // Function to extract user data from the profile response
