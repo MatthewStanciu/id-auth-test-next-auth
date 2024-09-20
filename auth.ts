@@ -23,7 +23,9 @@ export const authConfig = {
         }
       },
       checks: [],
-      token: 'https://id.purduehackers.com/api/token', // Token URL
+      token: {
+        url: 'https://id.purduehackers.com/api/token'
+      },
       userinfo: 'https://id.purduehackers.com/api/user', // Token URL
       // authorizationUrl: 'https://id.purduehackers.com/api/authorize?response_type=code',
       profile: (profile) => {
