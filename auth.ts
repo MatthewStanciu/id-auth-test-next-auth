@@ -31,10 +31,7 @@ export const authConfig = {
   ],
   secret: process.env.AUTH_SECRET,
   callbacks: {
-    async session({ session, token: jwtToken }) {
-      //@ts-expect-error
-      console.log({session, token})
-      //@ts-expect-error
+    async session({ session, token }) {
       return { ...session, token };
     },
   },
