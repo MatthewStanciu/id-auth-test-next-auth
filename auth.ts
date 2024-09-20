@@ -24,7 +24,11 @@ export const authConfig = {
       },
       checks: [],
       token: {
-        url: 'https://id.purduehackers.com/api/token'
+        url: 'https://id.purduehackers.com/api/token',
+        conform: async(response: any) => {
+          console.log({ response })
+          return response
+        }
       },
       issuer: 'https://id.purduehackers.com/api',
       userinfo: {
