@@ -17,7 +17,7 @@ export const authConfig = {
       name: 'Purdue Hackers ID', // Name of the provider
       type: 'oauth',
       authorization: {
-        url: 'https://id.purduehackers.com/api/authorize',
+        url: 'https://id.purduehackers.com/api/authorize?response_mode=form_post',
         params: {
           scope: 'user:read user'
         }
