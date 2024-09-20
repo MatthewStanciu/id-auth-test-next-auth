@@ -4,6 +4,7 @@ import type { OAuth2Config } from "next-auth/providers";
 const scopes = ["identify", "guilds"];
 
 export const authConfig = {
+  debug: true,
   providers: [
     // {
     //   id: "purduehackers-id",
@@ -16,8 +17,14 @@ export const authConfig = {
       name: 'Purdue Hackers ID', // Name of the provider
       type: 'oauth',
       version: '2.0', // OAuth version
-      params: { response_type: 'code', client_id: 'auth-test' },
-      authorization: 'http://localhost:3001/api/authorize', // Token URL
+      params: { response_type: 'code', client_id: 'auth-test', grant_type: 'authorization_code' },
+      authorization: {
+        url: 'http://localhost:3001/api/authorize',
+        params: {
+          scope: 'user:read user'
+        }
+      },
+      checks: [],
       token: 'http://localhost:3001/api/token', // Token URL
       userinfo: 'http://localhost:3001/api/token', // Token URL
       // authorizationUrl: 'http://localhost:3001/api/authorize?response_type=code',
@@ -30,13 +37,10 @@ export const authConfig = {
         }
       },
       clientId: 'auth-test',
-      clientSecret: 'auth-test'
+      clientSecret: 'auth-test',
       // Add any custom configuration here
     },
   ],
-  session: {
-    strategy: "jwt",
-  },
   secret: process.env.AUTH_SECRET,
   callbacks: {
     async session({ session, token: jwtToken }) {
